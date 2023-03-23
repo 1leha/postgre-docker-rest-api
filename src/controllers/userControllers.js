@@ -93,17 +93,21 @@ exports.deleteUser = asyncWraper(async (req, res) => {
 exports.createUser = asyncWraper(async (req, res) => {
   const { username, email, role, firstname, lastname, state } = req.body;
 
+  // Write to Profiles
   const newUserProfile = await db.query(sqlQuery.insertIntoProfiles, [
     firstname,
     lastname,
     state,
   ]);
+
+  // Write to Users
   const newUser = await db.query(
     sqlQuery.insertIntoUsers,
 
     [username, email, role, newUserProfile.rows[0].id]
   );
 
+  // Join data from 2 tables to newUser object
   const newUserData = {
     ...newUserProfile.rows[0],
     ...newUser.rows[0],
