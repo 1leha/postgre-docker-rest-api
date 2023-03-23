@@ -21,7 +21,6 @@ app.use((req, res) => {
 
 // server error handler
 app.use((err, req, res, next) => {
-  console.log("err :>> ", err);
   res.status(err.status || resStatus[500]).json({ message: err.message });
 });
 
