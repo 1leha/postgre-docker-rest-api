@@ -17,7 +17,7 @@ exports.startIndex = (req, res) => {
 };
 
 exports.getAllUsers = asyncWraper(async (req, res) => {
-  const role = req.query.role;
+  const role = req.query?.role;
 
   const usersQuery = role ? sqlQuery.getAllUsersByRole : sqlQuery.getAllUsers;
   const queryParam = role ? [role] : [];
