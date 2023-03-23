@@ -8,9 +8,83 @@
   </head>
   <body>
     <main>
-      <h1>NodeJS PostgreSQL API</h1>
-      <h2>with Docker</h2>
-      <p>User collection path: <b>/users</b></p>
+      <section>
+        <h1>Baskend App connected with PostgreeSQL</h1>
+        <p>
+          This application is connects to PostgreeSQL database thet is inside a
+          docker container.
+        </p>
+        <p>
+          DB have 2 tables 'users' and 'profiles' which have a relationship
+          between them to each other.
+        </p>
+        <p>Posible actions:</p>
+        <ul>
+          <oi>Add user (check data used Joi).</oi>
+          <oi>Update user (check data used Joi).</oi>
+          <oi>Delete user.</oi>
+          <oi>Get all users.</oi>
+          <oi>Get all users by role.</oi>
+          <oi>Get one user.</oi>
+        </ul>
+      </section>
+      <section>
+        <h2>Installation</h2>
+        <p>Do 2 things:</p>
+        <ul>
+          <li>clone this repo</li>
+          <li>npm install</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Documentation</h2>
+        <p>To start project split your terminal to have 2 at the moment:</p>
+
+        <ul>
+          <li>npm run dev - starts localhost server</li>
+          <li>npm run db - starts docker container with PostgreSQL DB</li>
+        </ul>
+        <p>
+          Now you ready to send reqests to the base. You can do it with postman
+          service or similar.
+        </p>
+        <p>User data have validation before creation or updating step.</p>
+      </section>
+      <section>
+        <h2>Usage/Examples</h2>
+        <p>Requests examples:</p>
+        <ul>
+          <li>
+            <p>get all users:</p>
+            <p>GET http://localhost:3000/users</p>
+          </li>
+          <li>
+            <p>get all users by role:</p>
+            <p>GET http://localhost:3000/users?role=user</p>
+          </li>
+          <li>
+            <p>get user by id:</p>
+            <p>GET http://localhost:3000/users/1</p>
+          </li>
+          <li>
+            <p>create user:</p>
+            <p>POST http://localhost:3000/users</p>
+          </li>
+          <li>
+            <p>update user by id:</p>
+            <p>PATCH http://localhost:3000/users/1</p>
+          </li>
+          <li>
+            <p>delete user by id:</p>
+            <p>DELETE http://localhost:3000/users/1</p>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>Technologies used</h2>
+        <p>NodeJS. Express. Docker. PostgreSQL.</p>
+        <p>Libs: Joi, Nodemon.</p>
+      </section>
     </main>
   </body>
 </html>

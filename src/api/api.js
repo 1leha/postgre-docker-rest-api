@@ -9,16 +9,13 @@ router.get("/", controller.startIndex);
 // Get All users and get user by role: ?role=admin or ?role=user
 router.get("/users", controller.getAllUsers);
 
-// Створити запрос на оновлення одного користувача,
-//його основних властивостей: username, email, firstName, lastName, state, role
+// Get, patch, delete user by id
 router
   .get("/users/:id", controller.getUserById)
   .patch("/users/:id", middleware.updateUserValidation, controller.updateUser)
-
-  // Створити запрос на видалення користувача
   .delete("/users/:id", controller.deleteUser);
 
-// Створити запрос на додавання користувача та його основних якостей : username, email, firstName, lastName, state, role
+// Create user: username, email, firstName, lastName, state, role. Role by default is "user"
 router.post("/users", middleware.createUserValidation, controller.createUser);
 
 module.exports = router;
